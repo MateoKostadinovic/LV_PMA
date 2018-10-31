@@ -7,20 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity
+public class StudentInfoActivity extends AppCompatActivity
 {
-    private Button oBtnPosalji;
+    private Button oBtnUpisi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        oBtnPosalji = (Button)findViewById(R.id.btnPosaljiIme);
-        oBtnPosalji.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_student_info);
+        oBtnUpisi = (Button)findViewById(R.id.btnUpisi);
+        oBtnUpisi.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, StudentInfoActivity.class));
+                startActivity(new Intent(StudentInfoActivity.this, SummaryActivity.class));
             }
         });
     }
-
 }
