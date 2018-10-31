@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SummaryActivity">
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical" >
+    <TextView
+        android:id="@+id/textviewImeLabel"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="32dp"
+        android:text="Vase ime: " />
+    <TextView
+        android:id="@+id/textviewIme"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:text="      " />
+    <TextView
+        android:id="@+id/textviewPredmetLabel"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="32dp"
+        android:text="Upisani predmet: " />
+    <TextView
+        android:id="@+id/textviewPredmet"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:text="      " />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
