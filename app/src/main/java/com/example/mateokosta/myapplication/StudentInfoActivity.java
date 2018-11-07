@@ -31,16 +31,15 @@ public class StudentInfoActivity extends AppCompatActivity
 
         final Bundle oExtras = getIntent().getExtras();
         sIme = oExtras.getString("ime");
-        oIme = (TextView)findViewById(R.id.textviewIme);
-        oIme.setText(sIme);
+        //oIme = (TextView)findViewById(R.id.textviewIme);
+        //oIme.setText(sIme);
 
         //oTextviewIme = (TextView) findViewById(R.id.textviewIme);
 
         oBtnUpisi.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //startActivity(new Intent(StudentInfoActivity.this, SummaryActivity.class));
+                //startActivity(new Intent(StudentInfoActivity.this, SummaryActivity.class)); ne radi jer moramo proslijediti parametre
 
-                sIme = oIme.getText().toString();
                 sPredmet = oInputPredmet.getText().toString();
 
                 Intent oUpisiPredmet = new Intent(getApplicationContext(), SummaryActivity.class);

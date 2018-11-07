@@ -17,7 +17,7 @@ public class SummaryActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        oBtnKraj = (Button)findViewById(R.id.btnKraj);
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
@@ -32,6 +32,7 @@ public class SummaryActivity extends AppCompatActivity
         oPredmet = (TextView)findViewById(R.id.textviewPredmet);
         oPredmet.setText(sPredmet);
 
+        oBtnKraj = (Button)findViewById(R.id.btnKraj);
         oBtnKraj.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(SummaryActivity.this, MainActivity.class));

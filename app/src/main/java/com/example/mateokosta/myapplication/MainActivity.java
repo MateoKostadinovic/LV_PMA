@@ -39,5 +39,11 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
+    //odlicna stvar !!!!
+    @Override
+    public void onBackPressed()
+    {
+
+    }
 
 }
