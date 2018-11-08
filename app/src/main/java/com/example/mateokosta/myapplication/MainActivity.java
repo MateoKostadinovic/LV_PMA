@@ -12,7 +12,11 @@ public class MainActivity extends AppCompatActivity
 {
     private Button oBtnPosalji;
     private EditText oInputIme;
+    private EditText oInputPrezime;
+    private EditText oInputDatumRodenja;
     private String sIme;
+    private String sPrezime;
+    private String sDatumRodenja;
 
 
     @Override
@@ -22,6 +26,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         oInputIme = (EditText)findViewById(R.id.edittextIme);
+        oInputPrezime = (EditText)findViewById(R.id.edittextPrezime);
+        oInputDatumRodenja = (EditText)findViewById(R.id.edittextDatumRodenja);
         oBtnPosalji = (Button)findViewById(R.id.btnPosaljiIme);
 
         /*oBtnPosalji.setOnClickListener(new View.OnClickListener() {
@@ -33,8 +39,12 @@ public class MainActivity extends AppCompatActivity
         oBtnPosalji.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 sIme = oInputIme.getText().toString();
+                sPrezime = oInputPrezime.getText().toString();
+                sDatumRodenja=oInputDatumRodenja.getText().toString();
                 Intent oUpisiIme = new Intent(getApplicationContext(), StudentInfoActivity.class);
                 oUpisiIme.putExtra("ime", sIme);
+                oUpisiIme.putExtra("prezime",sPrezime);
+                oUpisiIme.putExtra("datum_rodenja",sDatumRodenja);
                 startActivity(oUpisiIme);
             }
         });

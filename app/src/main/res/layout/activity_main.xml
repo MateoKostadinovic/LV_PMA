@@ -1,25 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:paddingLeft="16dp"
 android:paddingRight="16dp"
 android:orientation="vertical" >
-<android.support.design.widget.TextInputLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/students"
+        />
 
-<android.support.design.widget.TextInputEditText
-    android:id="@+id/edittextIme"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="Unesite ime"/>
-<Button
-    android:id="@+id/btnPosaljiIme"
-    android:layout_width="100dp"
-    android:layout_height="wrap_content"
-    android:layout_gravity="right"
-    android:text="Dalje" />
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="16dp">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edittextIme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ime"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edittextPrezime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Prezime"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="Datum rođenja"/>
+        <EditText
+            android:id="@+id/edittextDatumRodenja"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:hint="Unesite datum rođenja"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical" >
+        <Button
+            android:id="@+id/btnPosaljiIme"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="16dp"
+            android:text="Dalje" />
+
+    </LinearLayout>
+
 </LinearLayout>
+
+
