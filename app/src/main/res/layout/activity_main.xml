@@ -1,84 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:paddingLeft="16dp"
-android:paddingRight="16dp"
-android:orientation="vertical" >
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <ImageView
+        android:id="@+id/ImageStudents"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:src="@drawable/students"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         />
 
     <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/tilIme"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:layout_width="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/ImageStudents"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tilPrezime"
+        android:layout_marginStart="16dp">
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edittextIme"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="16dp">
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/edittextIme"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Ime"/>
-
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginRight="16dp">
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/edittextPrezime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Prezime"/>
-        </RelativeLayout>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+            android:hint="Ime"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilPrezime"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="100dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/ImageStudents"
+        app:layout_constraintStart_toEndOf="@id/tilIme"
+        app:layout_constraintEnd_toEndOf="parent">
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edittextPrezime"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:text="Datum rođenja"/>
-        <EditText
+            android:hint="Prezime"/>
+    </android.support.design.widget.TextInputLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tilPrezime"/>
+    <TextView
+        android:id="@+id/textViewDatumRodenja"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Datum rodenja"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/tilIme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tilDatumRodenja"
+        app:layout_constraintHorizontal_weight="2"
+        />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilDatumRodenja"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textViewDatumRodenja"
+        app:layout_constraintTop_toBottomOf="@+id/tilPrezime"
+        app:layout_constraintHorizontal_weight="3">
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/edittextDatumRodenja"
-            android:layout_width="220dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Unesite datum rođenja"/>
-    </LinearLayout>
-
-    <LinearLayout
+            android:hint="Datum rodenja"/>
+    </android.support.design.widget.TextInputLayout>
+    <View
         android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tilDatumRodenja"/>
+
+    <Button
+        android:id="@+id/btnPosaljiIme"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center|bottom"
-        android:orientation="vertical" >
-        <Button
-            android:id="@+id/btnPosaljiIme"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="16dp"
-            android:text="Dalje" />
-
-    </LinearLayout>
-
-</LinearLayout>
-
-
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Dalje"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</android.support.constraint.ConstraintLayout>

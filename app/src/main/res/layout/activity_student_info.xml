@@ -7,6 +7,14 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:orientation="vertical" >
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/students"
+        />
     <!--<TextView
         android:id="@+id/textviewImeLabel"
         android:layout_height="wrap_content"
@@ -23,16 +31,104 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
-    <android.support.design.widget.TextInputEditText
-        android:id="@+id/edittextPredmet"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Unesite predmet"/>
-    <Button
-        android:id="@+id/btnUpisi"
-        android:layout_width="100dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="16dp">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edittextPredmet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Unesite predmet"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edittextProfesor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Profesor"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="Upisi" />
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="16dp">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edittextAkademskaGodina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ak. godina"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edittextBrojSati"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Broj sati"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edittextBrojSatiLV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Broj sati LV"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@android:color/black"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical" >
+        <Button
+            android:id="@+id/btnUpisi"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="16dp"
+            android:text="Upisi" />
+    </LinearLayout>
+
 </LinearLayout>
