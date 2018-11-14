@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="datum_rodenja">Datum rodenja: </string>
+    <string name="ime">Ime</string>
+    <string name="prezime">Prezime</string>
+    <string name="predmet">Predmet: </string>
+    <string name="profesor">Profesor: </string>
+    <string name="akademska_godina">Ak. godina: </string>
+    <string name="broj_sati">Broj sati: </string>
+    <string name="broj_sati_lv">Broj sati(LV): </string>
+    <string name="kraj">Kraj</string>
+    <string name="dalje">Dalje</string>
+    <string name="upisi">Upisi</string>
 </resources>

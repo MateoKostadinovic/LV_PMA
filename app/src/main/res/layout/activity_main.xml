@@ -20,6 +20,7 @@
         android:id="@+id/tilIme"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/bkg"
         app:layout_constraintTop_toBottomOf="@+id/ImageStudents"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tilPrezime"
@@ -35,6 +36,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/bkg"
         app:layout_constraintTop_toBottomOf="@+id/ImageStudents"
         app:layout_constraintStart_toEndOf="@id/tilIme"
         app:layout_constraintEnd_toEndOf="parent">
@@ -48,12 +50,12 @@
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:background="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@+id/tilPrezime"/>
+        app:layout_constraintBottom_toTopOf="@+id/tilPrezime"/>
     <TextView
         android:id="@+id/textViewDatumRodenja"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Datum rodenja"
+        android:text="@string/datum_rodenja"
         android:layout_marginStart="16dp"
         android:layout_marginTop="15dp"
         android:textSize="20dp"
@@ -69,6 +71,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/bkg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/textViewDatumRodenja"
         app:layout_constraintTop_toBottomOf="@+id/tilPrezime"
@@ -91,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Dalje"
+        android:text="@string/dalje"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 </android.support.constraint.ConstraintLayout>
