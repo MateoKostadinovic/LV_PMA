@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Upisi predmet</string>
+    <string name="app_name">Studenti</string>
     <string name="datum_rodenja">Datum rodenja: </string>
     <string name="ime">Ime</string>
     <string name="prezime">Prezime</string>
@@ -11,4 +11,10 @@
     <string name="kraj">Kraj</string>
     <string name="dalje">Dalje</string>
     <string name="upisi">Upisi</string>
+    <string name="studenti">Studenti</string>
+    <string-array name="language_array">
+        <item>Hrvatski</item>
+        <item>Engleski</item>
+        <item>Madarski</item>
+    </string-array>
 </resources>

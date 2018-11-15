@@ -71,7 +71,7 @@ public class SummaryActivity extends AppCompatActivity
         oBtnKraj = (Button)findViewById(R.id.btnKraj);
         oBtnKraj.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(SummaryActivity.this, MainActivity.class));
+                startActivity(new Intent(SummaryActivity.this, MainMainActivity.class));
             }
         });
 
