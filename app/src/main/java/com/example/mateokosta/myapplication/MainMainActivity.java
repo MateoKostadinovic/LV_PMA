@@ -1,5 +1,6 @@
 package com.example.mateokosta.myapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainMainActivity extends AppCompatActivity {
+    private static final String TAG = "MainMainActivity";
 
     private Button oBtnDalje;
 
@@ -22,8 +24,11 @@ public class MainMainActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
+    private ArrayList<Object> list = new ArrayList<>();
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_main);
 
@@ -36,7 +41,7 @@ public class MainMainActivity extends AppCompatActivity {
             }
         });
 
-        Spinner dropdown = findViewById(R.id.language_spinner);
+        /*Spinner dropdown = findViewById(R.id.language_spinner);
         //create a list of items for the spinner.
         String[] items = new String[]{"Hrvatski", "Engleski", "Madarski"};
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
@@ -55,12 +60,12 @@ public class MainMainActivity extends AppCompatActivity {
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(
                 this, LinearLayoutManager.VERTICAL,false);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(mLayoutManager);*/
 
         // specify an adapter (see also next example)
 
 
-        final ArrayList<Object> list = new ArrayList<>();
+
         list.add("Studenti");
 
         String sIme="Mateo";
@@ -68,8 +73,14 @@ public class MainMainActivity extends AppCompatActivity {
         Studenti sStudent=new Studenti(sIme,sPrezime);
         list.add(sStudent);
 
-        mAdapter = new MyAdapter(list);
-        mRecyclerView.setAdapter(mAdapter);
+        initRecyclerView(list);
+    }
+    private void initRecyclerView(ArrayList<Object> list)
+    {
+        RecyclerView recyclerView = findViewById(R.id.my_recycler_view);
+        MyAdapter adapter = new MyAdapter(list);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
     //odlicna stvar !!!!
     @Override
