@@ -24,7 +24,7 @@ public class MainMainActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    private ArrayList<Object> list = new ArrayList<>();
+    private ArrayList<Studenti> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -33,6 +33,16 @@ public class MainMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_main);
 
         oBtnDalje = (Button)findViewById(R.id.btnDalje);
+
+
+        /*final Bundle oExtras = getIntent().getExtras();
+        list = (ArrayList<Studenti>) oExtras.getSerializable("list");
+
+        if((list = (ArrayList<Studenti>) oExtras.getSerializable("list")).size()>=1)
+        {
+            list = (ArrayList<Studenti>) oExtras.getSerializable("list");
+            initRecyclerView(list);
+        }*/
 
         oBtnDalje.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -65,22 +75,23 @@ public class MainMainActivity extends AppCompatActivity {
         // specify an adapter (see also next example)
 
 
-
-        list.add("Studenti");
-
-        String sIme="Mateo";
-        String sPrezime="Kostadinovich";
-        Studenti sStudent=new Studenti(sIme,sPrezime);
+        String sIme = "Mateo";
+        String sPrezime = "Kostadinovich";
+        String sIme2 = "Pero";
+        String sPrezime2 = "Peric";
+        Studenti sStudent = new Studenti(sIme,sPrezime);
+        Studenti sStudent2 = new Studenti(sIme2,sPrezime2);
         list.add(sStudent);
-
+        list.add(sStudent2);
         initRecyclerView(list);
+
     }
-    private void initRecyclerView(ArrayList<Object> list)
+    private void initRecyclerView(ArrayList<Studenti> list)
     {
         RecyclerView recyclerView = findViewById(R.id.my_recycler_view);
         MyAdapter adapter = new MyAdapter(list);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));//ovdje izbacuje gresku
     }
     //odlicna stvar !!!!
     @Override

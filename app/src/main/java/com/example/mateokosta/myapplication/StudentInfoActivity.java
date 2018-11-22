@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class StudentInfoActivity extends AppCompatActivity
 {
     private Button oBtnUpisi;
@@ -29,6 +31,10 @@ public class StudentInfoActivity extends AppCompatActivity
     private String sBrojSati;
     private String sBrojSatiLV;
 
+
+    //private ArrayList<Studenti> list = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -48,6 +54,8 @@ public class StudentInfoActivity extends AppCompatActivity
         sIme = oExtras.getString("ime");
         sPrezime = oExtras.getString("prezime");
         sDatumRodenja = oExtras.getString("datum_rodenja");
+
+
         //oIme = (TextView)findViewById(R.id.textviewIme);
         //oIme.setText(sIme);
 
@@ -64,6 +72,7 @@ public class StudentInfoActivity extends AppCompatActivity
                 sBrojSatiLV=oInputBrojSatiLV.getText().toString();
 
                 Intent oUpisiPredmet = new Intent(getApplicationContext(), SummaryActivity.class);
+                //list = (ArrayList<Studenti>) oUpisiPredmet.getSerializableExtra("list");
                 oUpisiPredmet.putExtra("ime", sIme);
                 oUpisiPredmet.putExtra("prezime", sPrezime);
                 oUpisiPredmet.putExtra("datum_rodenja", sDatumRodenja);
@@ -73,6 +82,7 @@ public class StudentInfoActivity extends AppCompatActivity
                 oUpisiPredmet.putExtra("ak_godina", sAkGodina);
                 oUpisiPredmet.putExtra("broj_sati", sBrojSati);
                 oUpisiPredmet.putExtra("broj_sati_lv", sBrojSatiLV);
+                //oUpisiPredmet.putExtra("list",oExtras.getString("list"));
                 startActivity(oUpisiPredmet);
 
             }

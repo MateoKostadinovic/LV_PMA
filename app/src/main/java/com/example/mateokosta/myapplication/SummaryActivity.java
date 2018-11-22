@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class SummaryActivity extends AppCompatActivity
 {
     private String sIme;
@@ -26,6 +28,8 @@ public class SummaryActivity extends AppCompatActivity
     private String sBrojSatiLV;
     private TextView oBrojSatiLV;
     public Button oBtnKraj;
+    //private ArrayList<Studenti> list = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -71,7 +75,9 @@ public class SummaryActivity extends AppCompatActivity
         oBtnKraj = (Button)findViewById(R.id.btnKraj);
         oBtnKraj.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(SummaryActivity.this, MainMainActivity.class));
+                Intent oIspisiStudente = new Intent(getApplicationContext(), MainMainActivity.class);
+                //list = (ArrayList<Studenti>) oIspisiStudente.getSerializableExtra("list");
+                startActivity(oIspisiStudente);
             }
         });
 
