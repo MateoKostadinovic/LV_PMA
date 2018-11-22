@@ -5,16 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainMainActivity">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/naslov"
-        android:textSize="32dp"
-        android:textStyle="bold|italic"
-        android:text="@string/studenti"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
     <!--<Spinner
         android:id="@+id/language_spinner"
@@ -32,8 +22,7 @@
         android:layout_marginTop="50dp"
         android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@+id/ImageStudents"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/naslov"/>
+        app:layout_constraintStart_toStartOf="parent" />
     <Button
         android:id="@+id/btnDalje"
         android:layout_width="0dp"

@@ -19,12 +19,14 @@ public class MainMainActivity extends AppCompatActivity {
     private static final String TAG = "MainMainActivity";
 
     private Button oBtnDalje;
-
+    List<Object> list = new ArrayList<>();
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    private ArrayList<Studenti> list = new ArrayList<>();
+    //private ArrayList<Studenti> list = new ArrayList<>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -35,6 +37,16 @@ public class MainMainActivity extends AppCompatActivity {
         oBtnDalje = (Button)findViewById(R.id.btnDalje);
 
 
+
+        RecyclerView recyclerView = findViewById(R.id.my_recycler_view);
+
+        List<Object> studentiList=generateList();
+
+        Studenti oStudent=(Studenti) getIntent().getSerializableExtra("student");
+        studentiList.add(oStudent);
+
+        initRecyclerView(recyclerView,studentiList);
+
         /*final Bundle oExtras = getIntent().getExtras();
         list = (ArrayList<Studenti>) oExtras.getSerializable("list");
 
@@ -43,6 +55,9 @@ public class MainMainActivity extends AppCompatActivity {
             list = (ArrayList<Studenti>) oExtras.getSerializable("list");
             initRecyclerView(list);
         }*/
+
+
+
 
         oBtnDalje.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -75,7 +90,7 @@ public class MainMainActivity extends AppCompatActivity {
         // specify an adapter (see also next example)
 
 
-        String sIme = "Mateo";
+        /*String sIme = "Mateo";
         String sPrezime = "Kostadinovich";
         String sIme2 = "Pero";
         String sPrezime2 = "Peric";
@@ -83,13 +98,24 @@ public class MainMainActivity extends AppCompatActivity {
         Studenti sStudent2 = new Studenti(sIme2,sPrezime2);
         list.add(sStudent);
         list.add(sStudent2);
-        initRecyclerView(list);
+
+        initRecyclerView(recyclerView,list);*/
 
     }
-    private void initRecyclerView(ArrayList<Studenti> list)
+    List<Object> generateList()
     {
-        RecyclerView recyclerView = findViewById(R.id.my_recycler_view);
-        MyAdapter adapter = new MyAdapter(list);
+
+        list.add("Studenti");
+
+        /*list.add(new Studenti("Ivan","Ivic"));
+        list.add(new Studenti("Luka","Modric"));
+        list.add(new Studenti("Ivan","Horvat"));*/
+        return list;
+    }
+    private void initRecyclerView(RecyclerView recyclerView, List<Object> studentList)
+    {
+        //RecyclerView recyclerView = findViewById(R.id.my_recycler_view);
+        MyAdapter adapter = new MyAdapter(studentList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));//ovdje izbacuje gresku
     }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class SummaryActivity extends AppCompatActivity
@@ -28,7 +29,8 @@ public class SummaryActivity extends AppCompatActivity
     private String sBrojSatiLV;
     private TextView oBrojSatiLV;
     public Button oBtnKraj;
-    //private ArrayList<Studenti> list = new ArrayList<>();
+    private ArrayList<Studenti> list = new ArrayList<>();
+    public Studenti oStudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -47,6 +49,7 @@ public class SummaryActivity extends AppCompatActivity
         sAkGodina = oExtras.getString("ak_godina");
         sBrojSati = oExtras.getString("broj_sati");
         sBrojSatiLV = oExtras.getString("broj_sati_lv");
+        oStudent = new Studenti(sIme,sPrezime);
 
         oIme = (TextView)findViewById(R.id.textviewIme);
         oIme.setText(sIme);
@@ -76,7 +79,8 @@ public class SummaryActivity extends AppCompatActivity
         oBtnKraj.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent oIspisiStudente = new Intent(getApplicationContext(), MainMainActivity.class);
-                //list = (ArrayList<Studenti>) oIspisiStudente.getSerializableExtra("list");
+                list = (ArrayList<Studenti>) oIspisiStudente.getSerializableExtra("list");
+                oIspisiStudente.putExtra("student", (Serializable) oStudent);
                 startActivity(oIspisiStudente);
             }
         });
