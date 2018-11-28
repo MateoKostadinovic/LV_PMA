@@ -66,7 +66,7 @@ public class MainMainActivity extends AppCompatActivity {
             }
         });
 
-        /*Spinner dropdown = findViewById(R.id.language_spinner);
+        Spinner dropdown = findViewById(R.id.language_spinner);
         //create a list of items for the spinner.
         String[] items = new String[]{"Hrvatski", "Engleski", "Madarski"};
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
@@ -85,7 +85,7 @@ public class MainMainActivity extends AppCompatActivity {
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(
                 this, LinearLayoutManager.VERTICAL,false);
-        mRecyclerView.setLayoutManager(mLayoutManager);*/
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
 
