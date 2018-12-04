@@ -1,6 +1,5 @@
 package com.example.mateokosta.myapplication;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,9 +7,10 @@ import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.LinearLayoutManager;
+
+import com.example.mateokosta.myapplication.adapter.MyAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +66,7 @@ public class MainMainActivity extends AppCompatActivity {
             }
         });
 
-        /*Spinner dropdown = findViewById(R.id.language_spinner);
+        Spinner dropdown = findViewById(R.id.language_spinner);
         //create a list of items for the spinner.
         String[] items = new String[]{"Hrvatski", "Engleski", "Madarski"};
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
@@ -85,7 +85,7 @@ public class MainMainActivity extends AppCompatActivity {
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(
                 this, LinearLayoutManager.VERTICAL,false);
-        mRecyclerView.setLayoutManager(mLayoutManager);*/
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
 

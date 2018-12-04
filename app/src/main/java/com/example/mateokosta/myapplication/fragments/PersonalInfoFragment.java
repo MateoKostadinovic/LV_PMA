@@ -1,4 +1,4 @@
-package com.example.mateokosta.myapplication;
+package com.example.mateokosta.myapplication.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,37 +8,34 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.EditText;
+
+import com.example.mateokosta.myapplication.R;
 
 public class PersonalInfoFragment extends Fragment {
 
-   static PersonalInfoFragment newInstance(String firstName, String lastName)
+   public static PersonalInfoFragment newInstance()
    {
        /*omogucuje da se ne otvori fragment bez parametara firstName i lastName*/
-       PersonalInfoFragment fragment = new PersonalInfoFragment();
+       Bundle args = new Bundle();
 
-       Bundle extras=new Bundle();
-       extras.putString("firstName",firstName);
-       extras.putString("lastName",lastName);
-       fragment.setArguments(extras);
+       PersonalInfoFragment fragment = new PersonalInfoFragment();
+       fragment.setArguments(args);
        return fragment;
    }
 
-   TextInputLayout tilName;
-   TextInputLayout tilLastName;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+   EditText etName;
+   EditText etSurname;
+   EditText etDatumRodenja;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
-        View view=inflater.inflate(R.layout.activity_main,container,false);
-        tilName=view.findViewById(R.id.edittextIme);
-        tilLastName=view.findViewById(R.id.edittextPrezime);
+        View view=inflater.inflate(R.layout.fragment_personal_info,container,false);
+        etName=view.findViewById(R.id.etName);
+        etSurname=view.findViewById(R.id.etSurname);
+        etDatumRodenja=view.findViewById(R.id.etDatumRodenja);
         return view;
     }
 
