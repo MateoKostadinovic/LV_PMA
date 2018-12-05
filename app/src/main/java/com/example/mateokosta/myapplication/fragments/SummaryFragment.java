@@ -11,8 +11,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.mateokosta.myapplication.R;
+import com.example.mateokosta.myapplication.Studenti;
+import com.example.mateokosta.myapplication.listeners.SummaryInfoDataSource;
 
 public class SummaryFragment extends Fragment {
+    private static final String EXTRA_NAME =  "EXTRA_NAME";
+    private static final String EXTRA_LAST_NAME =  "EXTRA_LAST_NAME";
+
     public static SummaryFragment newInstance() {
         
         Bundle args = new Bundle();
@@ -21,6 +26,7 @@ public class SummaryFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+    public SummaryInfoDataSource dataSource;
     TextView textviewIme;
     TextView textviewPrezime;
     TextView textviewDatumRodenja;
@@ -44,5 +50,32 @@ public class SummaryFragment extends Fragment {
         textviewBrojSati = inflatedView.findViewById(R.id.textviewBrojSati);
         textviewBrojSatiLV = inflatedView.findViewById(R.id.textviewBrojSatiLV);
         return inflatedView;
+    }
+    /**
+     * Funkcija koja se poziva svaki puta kada se promjeni vidljivost Fragmenta (Poziva ju ViewPager),to je idealno mjesto za ponovno osvježiti podatke.
+     * @param isVisibleToUser
+     */
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser){
+            if(dataSource != null){
+                Studenti person = dataSource.getPerson();
+
+                if(person != null){
+                    setupTextViews(person);
+                }
+            }
+        }
+    }
+    private void setupTextViews(Studenti person){
+        textviewIme.setText(person.getIme());
+        textviewPrezime.setText(person.getPrezime());
+        textviewDatumRodenja.setText(person.getDatum());
+        textviewPredmet.setText(person.getPredmet());
+        textviewProfesor.setText(person.getProfesor());
+        textviewAkGodina.setText(person.getAkGodina());
+        textviewBrojSati.setText(person.getBrojSati());
+        textviewBrojSatiLV.setText(person.getBrojSatiLv());
     }
 }

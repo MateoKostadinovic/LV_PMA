@@ -49,7 +49,7 @@ public class SummaryActivity extends AppCompatActivity
         sAkGodina = oExtras.getString("ak_godina");
         sBrojSati = oExtras.getString("broj_sati");
         sBrojSatiLV = oExtras.getString("broj_sati_lv");
-        oStudent = new Studenti(sIme,sPrezime);
+        oStudent = new Studenti(sIme,sPrezime,sDatumRodenja,sPredmet,sProfesor,sAkGodina,sBrojSati,sBrojSatiLV);
 
         oIme = (TextView)findViewById(R.id.textviewIme);
         oIme.setText(sIme);

@@ -61,7 +61,7 @@ public class MainMainActivity extends AppCompatActivity {
 
         oBtnDalje.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent oMainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                Intent oMainActivity = new Intent(getApplicationContext(), CreateNewRecordActivity.class);
                 startActivity(oMainActivity);
             }
         });
