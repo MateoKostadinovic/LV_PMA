@@ -29,7 +29,7 @@ public class StudentInfoFragment extends Fragment {
     EditText etAkGod;
     EditText etBrojSati;
     EditText etBrojSatiLv;
-
+    String sMirko="Mirko";
     public StudentInfoListener studentInfoListener;
 
 

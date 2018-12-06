@@ -80,9 +80,9 @@ public class FragmentViewPagerAdapter  extends FragmentPagerAdapter implements P
     {
         this.sDate = sDate;
     }
-    public void setPredmet(String sProfesor)
+    public void setPredmet(String sPredmet)
     {
-        this.sProfesor = sProfesor;
+        this.sPredmet = sPredmet;
     }
     public void setProfesor(String sProfesor)
     {
