@@ -188,16 +188,20 @@ public class StudentInfoFragment extends Fragment implements Callback<CoursesRes
     public void onResponse(Call<CoursesResponse> call, Response<CoursesResponse> response)
     {
         String text;
+        String text2;
 
         if (response.isSuccessful() && response.body()!=null)
         {
             text = response.body().getCourses().toString();
+            text2 = response.body().getCourses().toString(); //ovdje pitat za objasnjenje
         }
         else
         {
             text = "Doslo je pogreske, podaci nisu dostupni." ;
+            text2 = "Doslo je pogreske, podaci nisu dostupni." ;
         }
         setText(text);
+        setTeacher(text2);
     }
 
     @Override
@@ -213,7 +217,18 @@ public class StudentInfoFragment extends Fragment implements Callback<CoursesRes
         for (String item : items)
         {
             subjects.add(item);
+            //teachers.add(item);
             //textView.setText(text);
+        }
+    }
+    void setTeacher(String text2)
+    {
+        text2 = text2.substring(1);
+        text2 = text2.replaceFirst(".$","");
+        String[] items = text2.split(",");
+        for (String item : items)
+        {
+            teachers.add(item);
         }
     }
 
@@ -227,6 +242,9 @@ public class StudentInfoFragment extends Fragment implements Callback<CoursesRes
         Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
         if (studentInfoListener != null) {
             studentInfoListener.setPredmet(item.toString());
+        }
+        if (studentInfoListener != null) {
+            studentInfoListener.setProfesor(item.toString());
         }
     }
 

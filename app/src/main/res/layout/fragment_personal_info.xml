@@ -14,22 +14,30 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
-    <EditText
+    <!--<EditText
         android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Ime"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ImageStudents"
-        app:layout_constraintEnd_toStartOf="@+id/etSurname"/>
+        app:layout_constraintEnd_toStartOf="@+id/etSurname"/>-->
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/ime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ImageStudents"
+        app:layout_constraintEnd_toStartOf="@+id/etSurname" />
     <EditText
         android:id="@+id/etSurname"
         android:hint="@string/prezime"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ImageStudents"
-        app:layout_constraintStart_toEndOf="@+id/etName"/>
+        app:layout_constraintStart_toEndOf="@+id/etName" />
     <TextView
         android:id="@+id/textViewDatumRodenja"
         android:layout_width="0dp"
@@ -52,4 +60,15 @@
         app:layout_constraintTop_toBottomOf="@+id/etSurname"
         app:layout_constraintStart_toEndOf="@+id/textViewDatumRodenja"
         app:layout_constraintHorizontal_weight="3"/>
+
+    <Button
+        android:id="@+id/cameraButton"
+        android:text="@string/otvori_kameru"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/start_margin"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="@dimen/margin_top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 </android.support.constraint.ConstraintLayout>

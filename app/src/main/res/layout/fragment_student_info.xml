@@ -42,12 +42,11 @@
 
             android:layout_weight="1"
             android:layout_marginLeft="16dp">
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/edittextPredmet"
+            <Spinner
+                android:id="@+id/subject_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bkg"
-                android:hint="Unesite predmet"/>
+                android:hint="Odaberite predmet"/>
 
         </RelativeLayout>
         <RelativeLayout
@@ -56,12 +55,12 @@
             android:layout_weight="1"
 
             android:layout_marginRight="16dp">
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/edittextProfesor"
+            <Spinner
+                android:id="@+id/teacher_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bkg"
-                android:hint="Profesor"/>
+                android:hint="Odaberite profesora"/>
+
         </RelativeLayout>
 
     </LinearLayout>
@@ -117,7 +116,11 @@
         </RelativeLayout>
 
     </LinearLayout>
-
+    <!--<TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />-->
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp"

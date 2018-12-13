@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.mateokosta.myapplication.R;
 import com.example.mateokosta.myapplication.Studenti;
 import com.example.mateokosta.myapplication.fragments.PersonalInfoFragment;
 import com.example.mateokosta.myapplication.fragments.StudentInfoFragment;

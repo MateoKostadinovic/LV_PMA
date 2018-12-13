@@ -12,6 +12,7 @@
     <string name="dalje">Dalje</string>
     <string name="upisi">Upisi</string>
     <string name="studenti">Studenti</string>
+    <string name="otvori_kameru">Otvori kameru</string>
     <string-array name="language_array">
         <item>Hrvatski</item>
         <item>Engleski</item>

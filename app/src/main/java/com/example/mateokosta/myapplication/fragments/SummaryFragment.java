@@ -71,10 +71,10 @@ public class SummaryFragment extends Fragment {
         super.setUserVisibleHint(isVisibleToUser);
         if(isVisibleToUser){
             if(dataSource != null){
-                Studenti person = dataSource.getPerson();
+                oStudent = dataSource.getPerson();
 
-                if(person != null){
-                    setupTextViews(person);
+                if(oStudent != null){
+                    setupTextViews(oStudent);
                 }
             }
         }
