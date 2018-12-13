@@ -3,6 +3,7 @@ package com.example.mateokosta.myapplication.models;
 import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Course {
     ArrayList<Instructor> instructors;
@@ -51,18 +52,11 @@ public class Course {
     public boolean isFeatured() {
         return featured;
     }
+
     @NonNull
     @Override
-    public String toString()
-    {
+    public String toString() {
         //return "Instruktori: "+ instructors.toString() + "\n" +"naslov: " +title + "\n";
         return title;
-    }
-    @NonNull
-
-    public String toInst()
-    {
-        //return "Instruktori: "+ instructors.toString() + "\n" +"naslov: " +title + "\n";
-        return instructors.toString();
     }
 }

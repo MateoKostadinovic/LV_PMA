@@ -193,15 +193,27 @@ public class StudentInfoFragment extends Fragment implements Callback<CoursesRes
         if (response.isSuccessful() && response.body()!=null)
         {
             text = response.body().getCourses().toString();
-            text2 = response.body().getCourses().toString(); //ovdje pitat za objasnjenje
+            //text2 = response.body().getCourses().get(0).getInt(); //ovdje pitat za objasnjenje
+            for(Course courses : response.body().getCourses())
+            {
+                subjects.add(courses.getTitle());
+            }
+            for(Course courses : response.body().getCourses())
+            {
+                for(Instructor instructor : courses.getInstructors())
+                {
+                    teachers.add(instructor.getName());
+                }
+            }
+
         }
         else
         {
             text = "Doslo je pogreske, podaci nisu dostupni." ;
             text2 = "Doslo je pogreske, podaci nisu dostupni." ;
         }
-        setText(text);
-        setTeacher(text2);
+        //setText(text);
+        //setTeacher(text2);
     }
 
     @Override
@@ -234,17 +246,21 @@ public class StudentInfoFragment extends Fragment implements Callback<CoursesRes
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // On selecting a spinner item
-        String item = parent.getItemAtPosition(position).toString();
-
-
-        // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-        if (studentInfoListener != null) {
-            studentInfoListener.setPredmet(item.toString());
+        if(parent.getId() == R.id.subject_spinner)
+        {
+            String item = parent.getItemAtPosition(position).toString();
+            Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+            if (studentInfoListener != null) {
+                studentInfoListener.setPredmet(item.toString());
+            }
         }
-        if (studentInfoListener != null) {
-            studentInfoListener.setProfesor(item.toString());
+        else
+        {
+            String teacher = parent.getItemAtPosition(position).toString();
+            Toast.makeText(parent.getContext(), "Selected: " + teacher, Toast.LENGTH_LONG).show();
+            if (studentInfoListener != null) {
+                studentInfoListener.setProfesor(teacher.toString());
+            }
         }
     }
 
