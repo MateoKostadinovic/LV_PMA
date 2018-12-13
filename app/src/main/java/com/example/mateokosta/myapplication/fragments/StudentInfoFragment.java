@@ -5,17 +5,36 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mateokosta.myapplication.R;
 import com.example.mateokosta.myapplication.listeners.StudentInfoListener;
+import com.example.mateokosta.myapplication.models.Course;
+import com.example.mateokosta.myapplication.models.CoursesResponse;
+import com.example.mateokosta.myapplication.models.Instructor;
+import com.example.mateokosta.myapplication.network.RetrofitManager;
 
-public class StudentInfoFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class StudentInfoFragment extends Fragment implements Callback<CoursesResponse> , AdapterView.OnItemSelectedListener {
     public static StudentInfoFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -24,12 +43,15 @@ public class StudentInfoFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-    EditText etSubject;
+
     EditText etTeacher;
     EditText etAkGod;
     EditText etBrojSati;
     EditText etBrojSatiLv;
-    String sMirko="Mirko";
+    TextView textView;
+
+    ArrayList<String> subjects = new ArrayList<String>();
+    ArrayList<String> teachers = new ArrayList<String>();
     public StudentInfoListener studentInfoListener;
 
 
@@ -38,46 +60,50 @@ public class StudentInfoFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
         View view=inflater.inflate(R.layout.fragment_student_info,container,false);
-        etSubject=view.findViewById(R.id.edittextPredmet);
-        etSubject.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
+        //textView=view.findViewById(R.id.textView);
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+        Call<CoursesResponse> callResponse = RetrofitManager.getInstance().getService().getCourses();
+        callResponse.enqueue(this);
 
-            }
+        // SPINNER PREDMETI
+        // Spinner element
+        Spinner spinner = view.findViewById(R.id.subject_spinner);
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (studentInfoListener != null) {
-                    studentInfoListener.setPredmet(s.toString());
-                }
+        // Spinner click listener
+        spinner.setOnItemSelectedListener(this);
+        subjects.add("Predmeti");
+        // Creating adapter for spinner
+        final ArrayAdapter dataAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1,
+                subjects);
 
-            }
-        });
-        etTeacher=view.findViewById(R.id.edittextProfesor);
-        etTeacher.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-            }
+        // attaching data adapter to spinner
+        spinner.setAdapter(dataAdapter);
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-            }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (studentInfoListener != null) {
-                    studentInfoListener.setProfesor(s.toString());
-                }
+        // SPINNER PROFESORI
+        // Spinner element
+        Spinner sppiner_profesori = view.findViewById(R.id.teacher_spinner);
 
-            }
-        });
+        // Spinner click listener
+        sppiner_profesori.setOnItemSelectedListener(this);
+        teachers.add("Profesori");
+        // Creating adapter for spinner
+        final ArrayAdapter profesoriAdapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1,
+                teachers);
+
+        // Drop down layout style - list view with radio button
+        profesoriAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        sppiner_profesori.setAdapter(profesoriAdapter);
+
         etAkGod=view.findViewById(R.id.edittextAkademskaGodina);
         etAkGod.addTextChangedListener(new TextWatcher() {
             @Override
@@ -155,5 +181,57 @@ public class StudentInfoFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         studentInfoListener=null;
+    }
+
+
+    @Override
+    public void onResponse(Call<CoursesResponse> call, Response<CoursesResponse> response)
+    {
+        String text;
+
+        if (response.isSuccessful() && response.body()!=null)
+        {
+            text = response.body().getCourses().toString();
+        }
+        else
+        {
+            text = "Doslo je pogreske, podaci nisu dostupni." ;
+        }
+        setText(text);
+    }
+
+    @Override
+    public void onFailure(Call<CoursesResponse> call, Throwable t)
+    {
+        setText("Doslo je do greske: "+ t.getMessage());
+    }
+    void setText(String text)
+    {
+        text = text.substring(1);
+        text = text.replaceFirst(".$","");
+        String[] items = text.split(",");
+        for (String item : items)
+        {
+            subjects.add(item);
+            //textView.setText(text);
+        }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // On selecting a spinner item
+        String item = parent.getItemAtPosition(position).toString();
+
+
+        // Showing selected spinner item
+        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+        if (studentInfoListener != null) {
+            studentInfoListener.setPredmet(item.toString());
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        // TODO Auto-generated method stub
     }
 }
